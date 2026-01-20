@@ -7,6 +7,8 @@ const closeButton = document.querySelector(".popup__close-icon");
 function openPopup() {
   popup.classList.add("popup_opened");
   addEscapeListener();
+  nameInput.value = currentname;
+  functionInput.value = currentfunction;
 }
 
 // Função para fechar o popup
@@ -17,16 +19,9 @@ function closePopup() {
 
 // Quando clicar no botão editar, abre o popup
 editButton.addEventListener("click", openPopup);
-{
-  popup.classList.add("popup_opened");
-  addEscapeListener();
-}
 
 // Quando clicar no botão fechar, fecha o popup
 closeButton.addEventListener("click", closePopup);
-{
-  removeEscapeListener();
-}
 
 const profilename = document.querySelector(".profile__name");
 const profilefunction = document.querySelector(".profile__info-function");
@@ -37,10 +32,7 @@ const currentfunction = profilefunction.textContent;
 const nameInput = document.querySelector("#form__input-name");
 const functionInput = document.querySelector("#form__input-function");
 
-nameInput.value = currentname;
-functionInput.value = currentfunction;
-
-let formElement = document.querySelector(".popup");
+const formElement = document.querySelector(".popup");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
