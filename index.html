@@ -52,97 +52,18 @@
           </button>
         </section>
 
-        <section class="elements">
+        <template id="card-template">
           <div class="element">
             <div class="element__rectangle">
-              <img
-                class="element__image"
-                src="images/yosemite.jpg"
-                alt="foto de rio com pinheiros em volta e montanhas"
-              />
+              <img class="element__image" src="" alt="" />
               <div class="element__info">
-                <h3 class="element__text">Vale do Ysemite</h3>
+                <h3 class="element__text"></h3>
                 <button class="element__like-button"></button>
               </div>
               <button class="element__trash-button"></button>
             </div>
           </div>
-
-          <div class="element">
-            <div class="element__rectangle">
-              <img
-                class="element__image"
-                src="images/lago-louise.jpg"
-                alt="foto de rio com montanhas com neve"
-              />
-              <div class="element__info">
-                <h3 class="element__text">Lago Louise</h3>
-                <button class="element__like-button"></button>
-              </div>
-              <button class="element__trash-button"></button>
-            </div>
-          </div>
-
-          <div class="element">
-            <div class="element__rectangle">
-              <img
-                class="element__image"
-                src="images/montanhas.jpg"
-                alt="foto de montanhas com por do sol"
-              />
-              <div class="element__info">
-                <h3 class="element__text">Montanhas Care...</h3>
-                <button class="element__like-button"></button>
-              </div>
-              <button class="element__trash-button"></button>
-            </div>
-          </div>
-
-          <div class="element">
-            <div class="element__rectangle">
-              <img
-                class="element__image"
-                src="images/latemar.jpg"
-                alt="foto de montanhas a noite com o céu estrelado"
-              />
-              <div class="element__info">
-                <h3 class="element__text">Latemar</h3>
-                <button class="element__like-button"></button>
-              </div>
-              <button class="element__trash-button"></button>
-            </div>
-          </div>
-
-          <div class="element">
-            <div class="element__rectangle">
-              <img
-                class="element__image"
-                src="images/parque-nacional.jpg"
-                alt="foto de rio com montanhas com neve"
-              />
-              <div class="element__info">
-                <h3 class="element__text">Parque Nacional...</h3>
-                <button class="element__like-button"></button>
-              </div>
-              <button class="element__trash-button"></button>
-            </div>
-          </div>
-
-          <div class="element">
-            <div class="element__rectangle">
-              <img
-                class="element__image"
-                src="images/lago-di-braies.jpg"
-                alt="foto de rio com montanhas com neve e um pier de madeira"
-              />
-              <div class="element__info">
-                <h3 class="element__text">Lago Di Braies</h3>
-                <button class="element__like-button"></button>
-              </div>
-              <button class="element__trash-button"></button>
-            </div>
-          </div>
-        </section>
+        </template>
 
         <div class="popup">
           <div class="popup__content">
@@ -250,7 +171,7 @@
       </main>
       <footer class="footer">© 2024 Around The U.S.</footer>
     </div>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/FormValidator.js"></script>
   </body>
 </html>

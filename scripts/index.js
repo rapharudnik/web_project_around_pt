@@ -1,3 +1,5 @@
+import Card from "./Card.js";
+
 // Selecionar os elementos principais
 const editButton = document.querySelector(".profile__info-edit-button");
 const popup = document.querySelector(".popup");
@@ -54,6 +56,7 @@ function handleProfileFormSubmit(evt) {
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
 
+//array initialCards com os dados dos 6 cartões
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -81,36 +84,12 @@ const initialCards = [
   },
 ];
 
-// Selecionar os elementos principais (popup new place)
-const addPlace = document.querySelector(".profile__add-button");
-const popupNewplace = document.querySelector(".popup__newplace");
-const closeButtonNewplace = document.querySelector(
-  ".popup__close-icon_newplace"
-);
-
-//função abrir popup
-function openPopupNewplace() {
-  popupNewplace.classList.add("popup__newplace_opened");
-  addEscapeListener();
-}
-
-// Função para fechar o popup
-function closePopupNewplace() {
-  popupNewplace.classList.remove("popup__newplace_opened");
-  removeEscapeListener();
-}
-
-// Quando clicar no botão add, abre o popup
-addPlace.addEventListener("click", openPopupNewplace);
-{
-  addEscapeListener();
-}
-
-// Quando clicar no botão fechar, fecha o popup
-closeButtonNewplace.addEventListener("click", closePopupNewplace);
-{
-  removeEscapeListener();
-}
+// Criar instâncias da classe Card para cada cartão inicial
+initialCards.forEach((cardData) => {
+  const card = new Card(cardData, "#card-template");
+  const cardElement = card.generateCard();
+  cardsContainer.prepend(cardElement);
+});
 
 //adicionando um cartão personalizado
 
@@ -245,6 +224,37 @@ closeImage.addEventListener("click", function () {
 const allPopups = document.querySelectorAll(
   ".popup, .popup__newplace, .popup__image"
 );
+
+// Selecionar os elementos principais (popup new place)
+const addPlace = document.querySelector(".profile__add-button");
+const popupNewplace = document.querySelector(".popup__newplace");
+const closeButtonNewplace = document.querySelector(
+  ".popup__close-icon_newplace"
+);
+
+//função abrir popup
+function openPopupNewplace() {
+  popupNewplace.classList.add("popup__newplace_opened");
+  addEscapeListener();
+}
+
+// Função para fechar o popup
+function closePopupNewplace() {
+  popupNewplace.classList.remove("popup__newplace_opened");
+  removeEscapeListener();
+}
+
+// Quando clicar no botão add, abre o popup
+addPlace.addEventListener("click", openPopupNewplace);
+{
+  addEscapeListener();
+}
+
+// Quando clicar no botão fechar, fecha o popup
+closeButtonNewplace.addEventListener("click", closePopupNewplace);
+{
+  removeEscapeListener();
+}
 
 allPopups.forEach((popupContainer) => {
   popupContainer.addEventListener("click", function (evt) {
