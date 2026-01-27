@@ -69,7 +69,7 @@ const initialCards = [
   },
   {
     name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+    link: "https://plus.unsplash.com/premium_photo-1690440799957-38f180ab63c6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Montanhas Carecas",
@@ -77,7 +77,7 @@ const initialCards = [
   },
   {
     name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+    link: "https://images.unsplash.com/photo-1613182749475-09d63e8001ba?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     name: "Parque Nacional da Vanoise ",
@@ -101,36 +101,6 @@ initialCards.forEach((cardData) => {
 //criando constantes para os inputs (imagem e título)
 const titleInput = document.querySelector("#form__input-title");
 const imageInput = document.querySelector("#form__input-image");
-
-//Criar uma função para adicionar o novo cartão
-function addNewCard(name, link) {
-  // Aqui você vai criar um novo cartão com os dados do formulário
-  // Use os parâmetros 'name' e 'link' que já chegam na função
-
-  // Criar o elemento do cartão
-  const cardElement = document.createElement("div");
-  cardElement.classList.add("element");
-
-  const imageElement = document.createElement("img");
-
-  console.log(link);
-  console.log(typeof link);
-  // Adicionar o HTML interno
-  cardElement.innerHTML = `
-    <img src="${link}" alt="${name}" class="element__image">
-    <div class="element__info">
-      <h2 class="element__text">${name}</h2>
-      <button class="element__like-button"></button>
-    </div>
-     <button class="element__trash-button"></button>
-  `;
-
-  console.log("Cartão criado:", cardElement.innerHTML);
-
-  // e adicionar ao contêiner
-  const addContainer = document.querySelector(".elements");
-  addContainer.prepend(cardElement); // ← prepend adiciona no início
-}
 
 // Selecionar o formulário de adicionar cartão
 const addNewCardForm = document.querySelector(".popup__newplace");
@@ -247,6 +217,7 @@ function closePopupNewplace() {
 }
 
 // Quando clicar no botão add, abre o popup
+//
 addPlace.addEventListener("click", openPopupNewplace);
 {
   addEscapeListener();
