@@ -1,10 +1,10 @@
-import Card from "../src/components/Card.js";
-import Section from "../src/components/Section.js";
-import PopupWithImage from "../src/components/PopupWithImage.js";
-import PopupWithForm from "../src/components/PopupWithForm.js";
-import UserInfo from "../src/components/UserInfo.js";
-import Popup from "../src/blocks/components/Popup.js";
-import FormValidator from "../src/components/FormValidator.js";
+import Card from "../scripts/components/Card.js";
+import Section from "../scripts/components/Section.js";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import UserInfo from "../scripts/components/UserInfo.js";
+import Popup from "../scripts/components/Popup.js";
+import FormValidator from "../scripts/components/FormValidator.js";
 
 // Criar instância do popup de imagem
 const popupWithImage = new PopupWithImage(".popup_type_image");
