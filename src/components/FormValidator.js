@@ -3,17 +3,17 @@ export default class FormValidator {
     this._config = config;
     this._formElement = formElement;
     this._inputList = Array.from(
-      formElement.querySelectorAll(config.inputSelector)
+      formElement.querySelectorAll(config.inputSelector),
     );
     this._buttonElement = formElement.querySelector(
-      config.submitButtonSelector
+      config.submitButtonSelector,
     );
   }
 
   _showInputError = (errorMessage, inputElement) => {
     // Encontra o elemento de erro usando o ID do input
     const errorElement = this._formElement.querySelector(
-      `#${inputElement.id}-error`
+      `#${inputElement.id}-error`,
     );
 
     if (errorElement) {
@@ -35,7 +35,7 @@ export default class FormValidator {
   //faz o oposto da função showImputError
   _hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
-      `#${inputElement.id}-error`
+      `#${inputElement.id}-error`,
     );
 
     //remove as classes de erro do imput e elemento de erro
@@ -114,8 +114,8 @@ const config = {
 
 //instância para cada formulário
 // Selecionar cada formulário específico
-const profileForm = document.querySelector(".form");
-const newPlaceForm = document.querySelector(".form__newplace");
+const profileForm = document.querySelector(".popup__profile");
+const newPlaceForm = document.querySelector(".popup__newplace");
 
 // Criar uma instância para cada formulário
 const profileValidator = new FormValidator(config, profileForm);
