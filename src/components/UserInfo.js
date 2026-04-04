@@ -1,19 +1,25 @@
 export default class UserInfo {
   constructor(userInfo) {
-    // Aqui você GUARDA os seletores que recebeu
-    this._nameSelector = userInfo.nameSelector;
-    this._jobSelector = userInfo.jobSelector;
+    // Recebe os seletores e encontra os elementos DOM
+    this._nameElement = document.querySelector(userInfo.nameSelector);
+    this._jobElement = document.querySelector(userInfo.jobSelector);
+    this._avatarElement = document.querySelector(userInfo.avatarSelector);
   }
 
   getUserInfo() {
     return {
-      name: document.querySelector(this._nameSelector).textContent,
-      job: document.querySelector(this._jobSelector).textContent,
+      name: this._nameElement.textContent,
+      job: this._jobElement.textContent,
     };
   }
 
   setUserInfo(newUserInfo) {
-    this._nameSelector.textContent = newUserInfo.name;
-    this._jobSelector.textContent = newUserInfo.job;
+    this._nameElement.textContent = newUserInfo.name;
+    this._jobElement.textContent = newUserInfo.job;
+  }
+
+  // Novo método para atualizar o avatar
+  setUserAvatar(avatarUrl) {
+    this._avatarElement.src = avatarUrl;
   }
 }

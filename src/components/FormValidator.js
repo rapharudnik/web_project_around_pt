@@ -111,16 +111,3 @@ const config = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
-
-//instância para cada formulário
-// Selecionar cada formulário específico
-const profileForm = document.querySelector(".popup__profile");
-const newPlaceForm = document.querySelector(".popup__newplace");
-
-// Criar uma instância para cada formulário
-const profileValidator = new FormValidator(config, profileForm);
-const newPlaceValidator = new FormValidator(config, newPlaceForm);
-
-// Ativar a validação para cada formulário
-profileValidator.enableValidation();
-newPlaceValidator.enableValidation();

@@ -11,7 +11,29 @@
 .profile__avatar-image {
   width: 120px;
   height: 120px;
+  border-radius: 50%; /* ← Adicione esta linha para deixar redonda */
+  object-fit: cover;
   color: #c4c4c4;
+  transition: filter 0.3s ease;
+}
+
+.profile:hover .profile__avatar-image {
+  filter: brightness(0.4);
+}
+
+.profile__avatar-edit-button {
+  position: absolute;
+  margin: 47px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1;
+  visibility: hidden;
+}
+
+.profile:hover .profile__avatar-edit-button {
+  visibility: visible;
 }
 
 .profile__info {

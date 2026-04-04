@@ -28,6 +28,13 @@
             src="./images/Avatar.png"
             alt="imagem de homem mais velho com cabelo branco e touca vermelha"
           />
+          <button class="profile__avatar-edit-button" type="button">
+            <img
+              class="profile__avatar-edit-button-vector"
+              src="./images/EditPhoto.png"
+              alt="botão de edição foto de perfíl"
+            />
+          </button>
 
           <div class="profile__info">
             <div class="profile__name-button">
@@ -167,6 +174,60 @@
 
             <img class="popup__image" alt="" src="" />
             <h3 class="popup__caption"></h3>
+          </div>
+        </div>
+
+        <div class="popup popup_type_confirmation">
+          <div class="popup__content">
+            <img
+              class="popup__close popup__cancel-button"
+              src="images/CloseIcon.png"
+              alt="icone de x"
+            />
+            <form class="form popup__form">
+              <h2 class="popup__title">Tem certeza?</h2>
+              <button
+                class="popup__submit-button popup__button popup__confirm-button"
+                type="button"
+              >
+                Sim
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="popup popup_type_edit-avatar">
+          <div class="popup__content">
+            <img
+              class="popup__close"
+              src="images/CloseIcon.png"
+              alt="icone de x"
+            />
+
+            <form class="popup__form">
+              <h2 class="popup__title">Alterar a foto do perfíl</h2>
+              <div class="popup__field-editphoto popup__field">
+                <input
+                  class="popup__input-editphoto popup__input"
+                  type="url"
+                  name="Avatar"
+                  id="form__input-avatar"
+                  placeholder="Link da imagem"
+                  required
+                  minlength="2"
+                  maxlength="200"
+                />
+                <span
+                  class="popup__error"
+                  id="form__input-editphoto-error"
+                ></span>
+                <hr class="popup__line-editphoto popup__line" />
+              </div>
+
+              <button class="popup__submit-button popup__button" type="submit">
+                Salvar
+              </button>
+            </form>
           </div>
         </div>
       </main>

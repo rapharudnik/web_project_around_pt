@@ -1,9 +1,20 @@
 export default class Card {
-  constructor(data, cardSelector, handleCardClick) {
+  constructor(
+    data,
+    cardSelector,
+    handleCardClick,
+    handleLikeClick,
+    handleDeleteClick,
+  ) {
     this._name = data.name;
     this._image = data.link;
+    this._isLiked = data.isLiked;
+    this._id = data._id;
+    this._owner = data.owner;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
+    this._handleLikeCallback = handleLikeClick;
+    this._handleDeleteCallback = handleDeleteClick;
   }
 
   _getTemplate() {
@@ -18,17 +29,31 @@ export default class Card {
   }
 
   _handleLikeClick() {
-    this._likeButton.classList.toggle("element__like-button_active");
+    // Chama a função callback passando o ID do cartão e o estado atual
+    this._handleLikeCallback(this._id, this._isLiked)
+      .then((updatedCard) => {
+        // Atualiza o estado local apenas se a requisição foi bem-sucedida
+        this._isLiked = !this._isLiked;
+        this._likeButton.classList.toggle("element__like-button_active");
+      })
+      .catch((err) => {
+        console.log("Erro ao curtir/descurtir:", err);
+      });
   }
 
   _handleDeleteClick() {
-    this._element.remove();
+    this._handleDeleteCallback(this._id, this._element);
   }
 
   _setEventListeners() {
+    console.log("_setEventListeners foi chamado!");
     // método privado para adicionar eventos
     //Selecionar botão de curtir
     this._likeButton = this._element.querySelector(".element__like-button");
+
+    if (this._isLiked) {
+      this._likeButton.classList.add("element__like-button_active");
+    }
     //adiciona evento de curtir
     this._likeButton.addEventListener("click", () => this._handleLikeClick());
 
