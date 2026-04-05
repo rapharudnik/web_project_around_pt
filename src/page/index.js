@@ -3,7 +3,6 @@ import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-import Popup from "../components/Popup.js";
 import FormValidator from "../components/FormValidator.js";
 import Api from "../components/Api.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
@@ -161,7 +160,10 @@ const popupNewPlace = new PopupWithForm(".popup__newplace", (formData) => {
       cardSection.addItem(cardElement);
       popupNewPlace.close();
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      popupNewPlace._renderLoading(false); // 👈 restaura o botão
+    });
 });
 
 popupNewPlace.setEventListeners();

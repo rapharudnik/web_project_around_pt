@@ -1,4 +1,3 @@
-import Card from "./Card.js";
 import Popup from "./Popup.js";
 
 export default class PopupWithConfirmation extends Popup {
@@ -20,13 +19,15 @@ export default class PopupWithConfirmation extends Popup {
     this._cancelButton.addEventListener("click", () => {
       this.close();
     });
+
+    this._confirmButton.addEventListener("click", () => {
+      if (this._handleConfirm) {
+        this._handleConfirm();
+      }
+    });
   }
 
   setSubmitAction(callback) {
-    // Adiciona event listener ao botão de confirmação
-    this._confirmButton.onclick = () => {
-      callback(); // Executa a função de exclusão
-      this.close();
-    };
+    this._handleConfirm = callback; // só atualiza o callback, sem adicionar novo listener
   }
 }

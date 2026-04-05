@@ -5,6 +5,8 @@ export default class PopupWithForm extends Popup {
     super(popup);
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector(".popup__form");
+    this._submitButton = this._popup.querySelector(".popup__button"); // 👈 pega o botão
+    this._submitButtonText = this._submitButton.textContent;
   }
 
   _getInputValues() {
@@ -22,7 +24,6 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {
-      // Aqui dentro você vai colocar o que deve acontecer quando o formulário for enviado
       evt.preventDefault();
       this._renderLoading(true);
       const inputValues = this._getInputValues();
@@ -36,11 +37,10 @@ export default class PopupWithForm extends Popup {
   }
 
   _renderLoading(isLoading, loadingText = "Salvando...") {
-    const submitButton = this._popup.querySelector(".popup__button");
     if (isLoading) {
-      submitButton.textContent = loadingText;
+      this._submitButton.textContent = loadingText;
     } else {
-      submitButton.textContent = "Salvar"; // ou o texto original do botão
+      this._submitButton.textContent = this._submitButtonText; // ou o texto original do botão
     }
   }
 
